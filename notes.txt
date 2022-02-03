@@ -1,0 +1,22 @@
+dotnet new is4admin -n IdentityServer
+dotnet sln add .\src\IdentityServer
+dotnet sln add .\src\Api
+dotnet sln add .\src\MvcClient
+
+IdentityServer:	http://localhost:5000 ; https://localhost:5001
+MvcClient:		https://localhost:5002
+Api:			https://localhost:6001
+
+1. Visit http://localhost:5000/admin
+Add "api1" in Resources\Identity Resources
+Add "mvc" in Clients
+Add bob/Pass123$ in Users
+
+2. Visit https://localhost:5002/
+
+3. Visit https://localhost:5002/home/callapi
+
+Get user list:
+http://localhost:5000/users/lightweight?page=1&pageSize=25&state=active
+Create user:
+POST http://localhost:5000/users/
